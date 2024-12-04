@@ -10,7 +10,7 @@ def solution(filename):
 
     for string in match_group:
         a, b = map(int, string.split(','))
-        sum += a * b
+        result += a * b
 
     return result
 
