@@ -9,15 +9,19 @@ def set_antinodes(current, other):
     y_diff = other.y - current.y
     x_diff = other.x - current.x
 
-    ay = current.y - y_diff
-    ax = current.x - x_diff
-    if ay >= 0 and 0 <= ax < len(base_map[0]):
+    ay = current.y
+    ax = current.x
+    while ay >= 0 and 0 <= ax < len(base_map[0]):
         base_map[ay][ax].is_antinode = True
+        ay -= y_diff
+        ax -= x_diff
 
-    by = other.y + y_diff
-    bx = other.x + x_diff
-    if by < len(base_map) and 0 <= bx < len(base_map[0]):
+    by = other.y
+    bx = other.x
+    while by < len(base_map) and 0 <= bx < len(base_map[0]):
         base_map[by][bx].is_antinode = True
+        by += y_diff
+        bx += x_diff
 
 
 def solution():
