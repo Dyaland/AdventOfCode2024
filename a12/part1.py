@@ -6,19 +6,19 @@ def same_region(y:int, x:int, region:str):
 
 def find_area(y:int, x:int, region:str):
 
-        if not same_region(y, x, region):
-            return 0, 1
-        if visited[y][x]:
-            return 0, 0
+    if not same_region(y, x, region):
+        return 0, 1
+    if visited[y][x]:
+        return 0, 0
 
-        visited[y][x] = True
-        area, perimeter = 1, 0
+    visited[y][x] = True
+    area, perimeter = 1, 0
 
-        for change in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            new_area, new_perimeter = find_area(y + change[0], x + change[1], region)
-            area += new_area
-            perimeter += new_perimeter
-        return area, perimeter
+    for change in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        new_area, new_perimeter = find_area(y + change[0], x + change[1], region)
+        area += new_area
+        perimeter += new_perimeter
+    return area, perimeter
 
 
 def solution():
